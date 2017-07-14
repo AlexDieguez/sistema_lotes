@@ -74,4 +74,3 @@
     </div>
     <div class="parallax"><img src="<?=base_url();?>assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
-

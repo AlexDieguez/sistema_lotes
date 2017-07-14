@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2017 a las 22:49:12
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 7.0.6
+-- Tiempo de generación: 14-07-2017 a las 06:20:06
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `sistema_lotes`
+-- Base de datos: `lotes`
 --
 
 -- --------------------------------------------------------
@@ -75,10 +75,25 @@ CREATE TABLE `alta_compradores` (
 
 CREATE TABLE `alta_usuario` (
   `id_usuario` int(11) NOT NULL,
-  `Nombre` varchar(40) NOT NULL,
+  `nombre` varchar(40) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `a_paterno` varchar(150) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `a_materno` varchar(150) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `prioridad` int(11) NOT NULL,
-  `contraseña` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `token` varchar(60) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `request_token` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP
+) ;
+
+--
+-- Volcado de datos para la tabla `alta_usuario`
+--
+
+INSERT INTO `alta_usuario` (`id_usuario`, `nombre`, `a_paterno`, `a_materno`, `email`, `prioridad`, `username`, `password`, `token`, `request_token`, `created_at`, `status`) VALUES
+(1, 'Joel', 'Alvarez', 'Garcia', 'softcodec@gmail.com', 1, 'joel', '4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7', 'ee977806d7286510da8b9a7492ba58e2484c0ecc', '2017-07-13 05:00:00', '2017-07-13 05:00:00.000000', 1),
+(2, 'Alex', 'Dieguez', 'Otro', 'falexdg09@gmail.com', 2, 'alex', '60c6d277a8bd81de7fdde19201bf9c58a3df08f4', '4662abffddbc65e20a0df2f17048f0d09cf1e6ea', '2017-07-13 05:00:00', '2017-07-13 05:00:00.000000', 1);
 
 -- --------------------------------------------------------
 
@@ -138,12 +153,6 @@ ALTER TABLE `abono_id`
 --
 ALTER TABLE `alta_compradores`
   ADD PRIMARY KEY (`id_comprador`);
-
---
--- Indices de la tabla `alta_usuario`
---
-ALTER TABLE `alta_usuario`
-  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- Indices de la tabla `info_lotes`
