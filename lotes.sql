@@ -84,7 +84,8 @@ CREATE TABLE `alta_usuario` (
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `token` varchar(60) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `request_token` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL
 ) ;
 
 --
