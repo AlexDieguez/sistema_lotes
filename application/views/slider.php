@@ -13,5 +13,5 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="<?=base_url();?>assets/images/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="<?=base_url();?>assets/images/background3.jpg" alt="Unsplashed background img 1"></div>
   </div>
