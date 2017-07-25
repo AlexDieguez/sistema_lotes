@@ -40,6 +40,9 @@
   <script src="<?=base_url();?>assets/js/materialize.js"></script>
   <script src="<?=base_url();?>assets/js/init.js"></script>
   <script src="<?=base_url();?>assets/js/funciones.js"></script>
+  <script src="<?=base_url();?>assets/js/jquery.dataTables.min.js"></script>
+  <script src="<?=base_url();?>assets/js/dataTables.responsive.min.js"></script>
+  <script src="<?=base_url();?>assets/js/dataTables.bootstrap.js"></script>
 
   </body>
 </html>

@@ -25,5 +25,15 @@ class Cobranza extends CI_Controller {
         $this->load->view('theme/footer');
     }
 
+    public function lotes()
+    {
+        $this->load->view('theme/header');
+        $this->load->view('theme/nav');
+        $this->load->view('cobranza/lotes');
+        $this->load->view('theme/footer');
+    }
+
+
+
 
 }
