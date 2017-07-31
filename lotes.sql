@@ -115,7 +115,8 @@ CREATE TABLE `info_lotes` (
 --
 
 CREATE TABLE `lotes` (
-  `id_lote` varchar(20) NOT NULL
+  `id_lote` varchar(20) NOT NULL,
+  `id_comprador` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
