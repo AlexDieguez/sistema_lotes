@@ -22,7 +22,7 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="#" class="img-responsive" alt="">
+                     <img src="<?=base_url();?>assets/images/user.png" class="img-responsive" alt="">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
@@ -55,17 +55,17 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
                             Lotes </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="abonar">
                             <i class="fa fa-money"></i>
                             Abonar </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="alta">
                             <i class="fa fa-user-o"></i>
                             Alta Comprador </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="reporte">
                             <i class="fa fa-bar-chart"></i>
                             Reporte del día </a>
                         </li>

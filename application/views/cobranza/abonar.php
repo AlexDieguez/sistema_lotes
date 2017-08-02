@@ -37,7 +37,7 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
                 <div class="profile-userbuttons">
-                    <a href="<?=base_url()?>cobranza/bio"><button type="button" class="btn btn-success btn-sm">Bio</button></a>
+                    <a href="#"><button type="button" class="btn btn-success btn-sm">Bio</button></a>
                     <a href="<?=base_url()?>login/salir"><button type="button" class="btn btn-danger btn-sm">Salir</button></a>
                 </div>
                 <!-- END SIDEBAR BUTTONS -->
@@ -45,7 +45,7 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li class="active">
-                            <a href="#">
+                            <a href="index">
                             <i class="fa fa-dashboard"></i>
                             Panel </a>
                         </li>
@@ -55,17 +55,17 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
                             Lotes </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="abonar">
                             <i class="fa fa-money"></i>
                             Abonar </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="alta">
                             <i class="fa fa-user-o"></i>
                             Alta Comprador </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="reporte">
                             <i class="fa fa-bar-chart"></i>
                             Reporte del día </a>
                         </li>
@@ -76,7 +76,37 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
         </div>
         <div class="col-md-9">
 
-
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover dt-responsive nowrap" width="100%" id="table">
+     <thead>
+ <tr>
+            <th>ID Lote</th>
+            <th>Nombre Comprador</th>
+            <th>Saldo Pendiente</th>
+            <th>Abonar</th>
+            <th>Recibo</th>
+ </tr>
+ </thead>
+ <tbody>
+ <?php
+if($lista !== FALSE) {
+            foreach ($lista as $row) {
+                $nombre_completo = $row->Nombre .' '.$row->Apellido_paterno .' '.$row->Apellido_Materno;
+            echo "
+                   <tr>
+                       <td><span class='new badge span-enviado grey'><i class='fa fa-ticket' aria-hidden='true'></i>  ID-$row->id_comprador</span></td>
+                       <td>$nombre_completo</td>
+                       <td>$ $row->saldo</td>
+                       <td><a href='" . base_url() . "cobranza/abono/$row->id_comprador'><button type='button' class='btn btn-danger orange' data-toggle='tooltip' data-placement='bottom' title='$nombre_completo'><i class='fa fa-dollar' aria-hidden='true'></i></button></a></td>
+                       <td><a href='" . base_url() . "cobranza/recibo/$row->id_comprador' target='_blank'><button type='button' class='btn btn-danger red' data-toggle='tooltip' data-placement='bottom' title='$nombre_completo'><i class='fa fa-file-pdf-o' aria-hidden='true'></i></button></a></td>
+                    </tr>
+                ";
+           }
+}
+?>
+ </tbody>
+ </table>
+</div>
 
     </div>
 </div>
