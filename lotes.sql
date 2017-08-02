@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `abono` (
-  `id_abono` varchar(20) NOT NULL,
+  `id_abono` varchar(20) NOT NULL AUTO_INCREMENT,
   `fecha_abono` date NOT NULL,
   `concepto` varchar(150) NOT NULL,
   `debe` float NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `abono_id` (
 --
 
 CREATE TABLE `alta_compradores` (
-  `id_comprador` varchar(20) NOT NULL,
+  `id_comprador` varchar(20) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(30) NOT NULL,
   `Apellido_paterno` varchar(30) NOT NULL,
   `Apellido_Materno` varchar(30) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `alta_usuario` (
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `token` varchar(60) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `request_token` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL
 ) ;
 
