@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2017 a las 06:20:06
+-- Tiempo de generación: 02-08-2017 a las 06:38:24
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -28,12 +28,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `abono` (
   `id_abono` varchar(20) NOT NULL,
-  `fecha_abono` date NOT NULL,
-  `concepto` varchar(150) NOT NULL,
-  `debe` float NOT NULL,
-  `haber` float NOT NULL,
-  `saldo` float NOT NULL
+  `fecha_abono` date DEFAULT NULL,
+  `concepto` varchar(150) DEFAULT NULL,
+  `debe` float DEFAULT NULL,
+  `haber` float DEFAULT NULL,
+  `saldo` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `abono`
+--
+
+INSERT INTO `abono` (`id_abono`, `fecha_abono`, `concepto`, `debe`, `haber`, `saldo`) VALUES
+('1', '2017-07-30', 'Abono', 4500, 500, 4000),
+('2', '2017-08-01', 'Abono', 4500, 1500, 3000),
+('3', '2017-08-02', 'Abono', 4500, 2000, 2500),
+('4', '2017-08-02', 'Abono', 4500, 2500, 2000);
 
 -- --------------------------------------------------------
 
@@ -46,6 +56,13 @@ CREATE TABLE `abono_id` (
   `id_comprador` varchar(20) NOT NULL,
   `id_abono` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `abono_id`
+--
+
+INSERT INTO `abono_id` (`id_lote`, `id_comprador`, `id_abono`) VALUES
+('1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -67,6 +84,14 @@ CREATE TABLE `alta_compradores` (
   `correo_electronico` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `alta_compradores`
+--
+
+INSERT INTO `alta_compradores` (`id_comprador`, `Nombre`, `Apellido_paterno`, `Apellido_Materno`, `CURP`, `Clave_INE`, `RFC`, `Domicilio`, `Telefono_casa`, `Telefono_celular`, `correo_electronico`) VALUES
+('1', 'Juan ', 'Chavez', 'Martinez', 'adfsdsdgsgsg', 'kjbkbkbkbkjbk', 'lnlnlnklnlnlnln', '.nlknlknlknlnlknlnnl', '216666', '566546554', 'kbjbjkbb@gmail.com'),
+('2', 'Omar', 'Jaimes', 'Brito', 'JABR0940444940404JJ', 'JABR0940444940404JJ', 'JABR0940', 'EL VIVE EN UNA CALLE CERCA DE AQUI', '45454664465', '445446464646464', 'algo@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -84,8 +109,7 @@ CREATE TABLE `alta_usuario` (
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `token` varchar(60) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `request_token` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int(11) NOT NULL
+  `created_at` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP
 ) ;
 
 --
@@ -108,6 +132,13 @@ CREATE TABLE `info_lotes` (
   `Medidas` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `info_lotes`
+--
+
+INSERT INTO `info_lotes` (`id_lote`, `precio`, `Medidas`) VALUES
+('1', 4500, '400 mts2');
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +149,13 @@ CREATE TABLE `lotes` (
   `id_lote` varchar(20) NOT NULL,
   `id_comprador` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `lotes`
+--
+
+INSERT INTO `lotes` (`id_lote`, `id_comprador`) VALUES
+('1', '1');
 
 -- --------------------------------------------------------
 
